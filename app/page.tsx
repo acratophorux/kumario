@@ -122,27 +122,27 @@ export default function Home() {
             </p>
             <VideoCard
               index="01"
-              href="https://www.youtube.com/watch?v=MxR5I5_hOKk&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=2"
-              length="1:02:45"
-              title="Introduction to React 2025"
+              href="https://youtu.be/KuXjwB4LzSA?si=6ASShNZH7B3dd7dd"
+              length="23:01"
+              title="But what is a convolution? | 3Blue1Brown"
             />
             <VideoCard
               index="02"
-              href="https://www.youtube.com/watch?v=AGl52moyISU&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=3"
-              length="54:22"
-              title="Firestore, Chakra UI, Absolute Imports"
+              href="https://youtu.be/nmgFG7PUHfo?si=RVm9qpa6_hCn7n-5"
+              length="26:33"
+              title="The Remarkable Story Behind The Most Important Algorithm Of All Time | Veritasium"
             />
             <VideoCard
               index="03"
-              href="https://www.youtube.com/watch?v=3g6-v3_BNbM&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=4"
-              length="1:08:30"
-              title="Designing & Building the Dashboard"
+              href="https://youtu.be/3JQ3hYko51Y?si=jsynP-_fwf7_GpBU"
+              length="2:45"
+              title="Neural Network 3D Simulation | Denis Dmitriev"
             />
             <VideoCard
               index="04"
-              href="https://www.youtube.com/watch?v=u8iv_yhSRI8&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=5"
-              length="1:13:45"
-              title="Firebase Admin with Next.js + SWR"
+              href="https://youtu.be/HlLCtjJzHVI?si=vWsnWLe1_GJHshqs"
+              length="14:23"
+              title="Running Apple 1 software on a breadboard computer (Wozmon) | Ben Eater"
             />
             <a
               target="_blank"
