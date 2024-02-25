@@ -26,8 +26,11 @@ function NavItem({ href, text }: { href: string; text: string }) {
     </Link>
   );
 }
-
-export default function Container(props: { children: React.ReactNode }) {
+interface Props {
+  title: string;
+  children: React.ReactNode;
+}
+export default function Container(props: Props) {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
 
