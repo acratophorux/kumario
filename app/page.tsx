@@ -1,113 +1,176 @@
-import Image from 'next/image'
+"use client";
+import { Suspense } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { ThemeProvider } from "next-themes";
 
+import Container from "@/components/Container";
+import ProjectCard from "@/components/ProjectCard";
+import VideoCard from "@/components/VideoCard";
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+    <Suspense fallback={null}>
+      <ThemeProvider attribute="class">
+        <Container>
+          <div className="flex flex-col justify-center items-start max-w-4xl border-gray-200 dark:border-gray-700 mx-auto pb-16">
+            <div className="flex flex-col-reverse sm:flex-row items-start">
+              <div className="flex flex-col pr-8">
+                <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white">
+                  Dinesh Kumar
+                </h1>
+                <h2 className="text-gray-700 dark:text-gray-200 mb-4">
+                  student at School of Electrical Sciences, <br></br>
+                  <span className="font-semibold">
+                    Indian Institute of Technology Bhubaneswar
+                  </span>
+                </h2>
+                <p className="text-gray-600 dark:text-gray-400 mb-16">
+                  Fiddling with the building blocks of AI. Trying to do my
+                  little part in the quest of the Ultimate Question. I am always
+                  looking for the spirit of an engineer in a kind heart.
+                </p>
+              </div>
+              <div className="w-[80px] sm:w-[176px] relative mb-8 sm:mb-0 mr-auto">
+                <Image
+                  alt="Dinesh Kumar"
+                  height={176}
+                  width={176}
+                  src="/avatar.jpg"
+                  sizes="30vw"
+                  priority
+                  className="rounded-full filter grayscale"
+                />
+              </div>
+            </div>
+
+            <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
+              Projects
+            </h3>
+            <div className="flex gap-6 flex-col flex-wrap sm:flex-row">
+              <ProjectCard
+                title="Handwritten Digit Classification with Convolutional Neural Networks"
+                desc="Developed a convolutional neural network in PyTorch to classify
+            handwritten digits from 0-9. Designed the model architecture,
+            implemented training/evaluation loops, and optimized performance.
+            Achieved 98.98% accuracy on Kaggle's digit recognizer
+            competition."
+                href="gordon"
+              />
+              <ProjectCard
+                title="Gordon Ramsay's AI Sous-Chef"
+                desc="Gordon is a conversational AI assistant powered by GPT-3.5 that generates fun and amusing cooking recipes with a corny Ramsay-esque flair. Users can provide ingredients and flavor profiles, and Gordon will whip up creative recipes, garnished with the chef's signature humor."
+                href="gordon"
+              />
+              <ProjectCard
+                title="Unleash Your Creativity with Bross"
+                desc="Inspired by the imagination of Bob Ross, Bross is an AI image generation tool for bringing your creative visions to life. Simply describe a scene or artistic concept, and Bross will generate a unique image with striking visuals. Whether you seek natural landscapes, abstract designs, or any idea you can dream up, Bross provides an endless canvas to explore."
+                href="gordon"
+              />
+              <ProjectCard
+                title="This website is built using Next.js and Tailwind CSS. It is hosted on Vercel."
+                desc="Developed a convolutional neural network in PyTorch to classify
+            handwritten digits from 0-9. Designed the model architecture,
+            implemented training/evaluation loops, and optimized performance.
+            Achieved 98.98% accuracy on Kaggle's digit recognizer
+            competition."
+                href="gordon"
+              />
+              {/* <BlogPostCard
+              title="Everything I Know About Style Guides, Design Systems, and Component Libraries"
+              slug="style-guides-component-libraries-design-systems"
+              gradient="from-[#D8B4FE] to-[#818CF8]"
             />
-          </a>
-        </div>
-      </div>
+            <BlogPostCard
+              title="Rust Is The Future of JavaScript Infrastructure"
+              slug="rust"
+              gradient="from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
+            />
+            <BlogPostCard
+              title="Past, Present, and Future of React State Management"
+              slug="react-state-management"
+              gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
+            /> */}
+            </div>
+            <Link
+              href="/blog"
+              className="flex items-center mt-8 text-gray-600 dark:text-gray-400 leading-7 rounded-lg hover:text-gray-800 dark:hover:text-gray-200 transition-all h-6"
+            >
+              <>
+                {"Explore all projects"}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  className="h-6 w-6 ml-1"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17.5 12h-15m11.667-4l3.333 4-3.333-4zm3.333 4l-3.333 4 3.333-4z"
+                  />
+                </svg>
+              </>
+            </Link>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+            <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-16 text-black dark:text-white">
+              YouTube Collection
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400 mb-4">
+              List of YouTube videos I found interesting.
+            </p>
+            <VideoCard
+              index="01"
+              href="https://www.youtube.com/watch?v=MxR5I5_hOKk&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=2"
+              length="1:02:45"
+              title="Introduction to React 2025"
+            />
+            <VideoCard
+              index="02"
+              href="https://www.youtube.com/watch?v=AGl52moyISU&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=3"
+              length="54:22"
+              title="Firestore, Chakra UI, Absolute Imports"
+            />
+            <VideoCard
+              index="03"
+              href="https://www.youtube.com/watch?v=3g6-v3_BNbM&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=4"
+              length="1:08:30"
+              title="Designing & Building the Dashboard"
+            />
+            <VideoCard
+              index="04"
+              href="https://www.youtube.com/watch?v=u8iv_yhSRI8&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=5"
+              length="1:13:45"
+              title="Firebase Admin with Next.js + SWR"
+            />
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.youtube.com/playlist?list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1"
+              className="flex items-center mt-8 text-gray-600 dark:text-gray-400 leading-7 rounded-lg hover:text-gray-800 dark:hover:text-gray-200 transition-all h-6"
+            >
+              Watch all videos
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="h-6 w-6 ml-1"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17.5 12h-15m11.667-4l3.333 4-3.333-4zm3.333 4l-3.333 4 3.333-4z"
+                />
+              </svg>
+            </a>
+            <span className="h-16" />
+            {/* <Subscribe /> */}
+          </div>
+        </Container>
+      </ThemeProvider>
+    </Suspense>
+  );
 }
