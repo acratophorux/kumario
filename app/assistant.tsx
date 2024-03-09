@@ -26,13 +26,13 @@ export default function Chat() {
 
   return (
     <ThemeProvider>
-      <div className="flex flex-col gap-4 w-full max-w-4xl py-24 mx-auto stretch ">
+      <div className="flex flex-col gap-4 w-full max-w-4xl py-24 mx-auto stretch">
         {messages.map((m: Message) => (
           <div
             key={m.id}
             className={`whitespace-pre-wrap flex flex-col   ${
               m.role === "user"
-                ? "rounded-lg shadow-lg items-start text-right pt-4 pl-4 gap-1 dark:bg-gray-600"
+                ? "rounded-lg shadow-lg items-start text-right pt-4 pl-4 dark:bg-gray-600"
                 : "gap-1"
             }`}
             style={{ color: roleToColorMap[m.role] }}
@@ -67,26 +67,27 @@ export default function Chat() {
         {status === "in_progress" && (
           <div className="h-8 w-full max-w-md p-2 mb-8 bg-gray-300 dark:bg-gray-600 rounded-lg animate-pulse" />
         )}
-
-        <form
-          id="myForm"
-          onSubmit={submitMessage}
-          className="fixed bottom-0 w-full max-w-sm sm:max-w-md md:max-w-3xl h-12  mb-3 p-1 flex flex-row text-black dark:text-white ring-2 ring-gray-600 dark:ring-gray-200 rounded-full backdrop-blur-lg"
-        >
-          <input
-            disabled={status !== "awaiting_message"}
-            className="w-full h-full rounded-full px-4 bg-gray-200 dark:bg-gray-600"
-            value={input}
-            placeholder="Fancy some Sabji of Sangari?"
-            onChange={handleInputChange}
-          />
-          <button
-            className="bg-gray-800 dark:bg-gray-200 text-white dark:text-black rounded-full px-4 ml-3"
-            type="submit"
+        <div className="fixed left-0 bottom-0 flex items-center justify-center w-full  mb-3  px-1">
+          <form
+            id="myForm"
+            onSubmit={submitMessage}
+            className="h-12 p-1 flex flex-row text-black dark:text-white ring-2 ring-gray-600 dark:ring-gray-200 rounded-full backdrop-blur-lg "
           >
-            Cook
-          </button>
-        </form>
+            <input
+              disabled={status !== "awaiting_message"}
+              className="w-full h-full rounded-full px-4 bg-gray-200 dark:bg-gray-600"
+              value={input}
+              placeholder="Enter ingredients"
+              onChange={handleInputChange}
+            />
+            <button
+              className="bg-gray-800 dark:bg-gray-100 text-white dark:text-black rounded-full px-3 ml-3"
+              type="submit"
+            >
+              Cook
+            </button>
+          </form>
+        </div>
       </div>
     </ThemeProvider>
   );
